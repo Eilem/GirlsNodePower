@@ -51,8 +51,7 @@ ele irá instalar os seguintes módulos:
     npm install swagger-ui-express 
     npm install swagger-autogen 
     npm install sequelize pg 
-`` 
-
+`
 ---------------
 
 para gerar a documentação do swagger execute: 
