@@ -87,15 +87,20 @@
     },
     "/produtos/": {
       "get": {
-        "tags": [],
-        "description": "",
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint para obter uma lista de produtos",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Listagem de produtos.",
+            "schema": {
+              "$ref": "#/definitions/Produtos"
+            }
           },
-          "201": {
-            "description": "Created"
+          "400": {
+            "description": "Desculpe, ocorreu um problema."
           }
         }
       },
