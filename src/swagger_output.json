@@ -2,39 +2,87 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
-    "description": ""
+    "title": "API Omni Channel -  GirlsNodePower",
+    "description": "Serviço HTTP resolvendo funcionalidade Omni CHannel do cliente"
   },
-  "host": "localhost:3000",
+  "host": "localhost:5000",
   "basePath": "/",
-  "tags": [],
-  "schemes": [
-    "http"
+  "tags": [
+    {
+      "name": "Lojas",
+      "description": "Endpoints relacionados aos recursos de loja."
+    },
+    {
+      "name": "Produtos",
+      "description": "Endpoints relacionados aos recusos de produto"
+    },
+    {
+      "name": "Clientes",
+      "description": "Endpoints relacionados aos recusos de cliente"
+    },
+    {
+      "name": "Compras",
+      "description": "Endpoints relacionados aos recusos de compras do cliente"
+    }
   ],
-  "consumes": [],
-  "produces": [],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
-    "/clientes/{id}/compras": {
+    "/lojas/": {
       "get": {
+        "tags": [
+          "Lojas"
+        ],
+        "description": "Endpoint para obter uma lista de lojas",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Listagem de lojas.",
+            "schema": {
+              "$ref": "#/definitions/Lojas"
+            }
+          },
+          "400": {
+            "description": "Desculpe, ocorreu um problema."
+          }
+        }
+      },
+      "post": {
         "tags": [],
         "description": "",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "endereco": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
-        "responses": {}
-      }
-    },
-    "/clientes/": {
-      "post": {
-        "tags": [],
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
       }
     },
     "/produtos/": {
@@ -62,7 +110,7 @@
         }
       }
     },
-    "/lojas/": {
+    "/clientes/": {
       "get": {
         "tags": [],
         "description": "",
@@ -72,8 +120,122 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Clientes"
+        ],
+        "description": "Endpoint para cadastrar um cliente",
+        "parameters": [
+          {
+            "name": "NovoCliente",
+            "in": "body",
+            "description": "Informações do cliente",
+            "required": true,
+            "type": "object",
+            "schema": {
+              "$ref": "#/definitions/NovoCliente"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Nome e telefone são obrigatórios"
+          }
+        }
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "Lojas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 2
+          },
+          "nome": {
+            "type": "string",
+            "example": "Loja Osasco"
+          },
+          "endereco": {
+            "type": "string",
+            "example": "Centro "
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2021-09-01T01:03:52.018Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2021-09-01T01:03:52.018Z"
+          }
+        }
+      }
+    },
+    "Produtos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "nome": {
+            "type": "string",
+            "example": "Celular"
+          },
+          "preco": {
+            "type": "number",
+            "example": 1000
+          },
+          "categoria": {
+            "type": "string",
+            "example": "telefonia"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2021-09-01T01:03:52.018Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2021-09-01T01:03:52.018Z"
+          }
+        }
+      }
+    },
+    "NovoCliente": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "Luiza"
+        },
+        "email": {
+          "type": "string",
+          "example": "user@dominio.com"
+        },
+        "endereco": {
+          "type": "string",
+          "example": "Rua xxx,10 - Franca/SP"
+        },
+        "telefone": {
+          "type": "string",
+          "example": "(16)987654321"
+        }
+      },
+      "required": [
+        "nome",
+        "email",
+        "endereco",
+        "telefone"
+      ]
+    }
+  }
 }

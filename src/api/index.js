@@ -1,13 +1,13 @@
 const express=require('express')
 
-const clientesRouter=require('./clientes')
-const produtosRouter=require('./produtos')
 const lojasRouter=require('./lojas')
+const produtosRouter=require('./produtos')
+const clientesRouter=require('./clientes')
 
 const router=express.Router();
 
-router.use('/clientes',clientesRouter)
-router.use('/produtos',produtosRouter)
 router.use('/lojas',lojasRouter)
+router.use('/produtos',produtosRouter)
+router.use('/clientes',clientesRouter)
 
 module.exports=router

@@ -58,7 +58,10 @@ ele irá instalar os seguintes módulos:
 para gerar a documentação do swagger execute: 
 
 npm run swagger 
+
 //script presente dentro do package.json
+
+para acessar a documentação acesse a rota /docs
 
 ---------------
 

@@ -7,6 +7,9 @@ const { body, check, validationResult } = require('express-validator');
 
 const produtoService = new ProdutoService(produtos);
 
+/**
+ * Obter toda a lista de produtos
+ */
 router.get('/', async (req, res) => {
   try {
     const produtos = await produtoService.get();

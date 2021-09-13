@@ -1,21 +1,31 @@
-const compras=(sequelize,Datatypes)=>{
-    const Compras=sequelize.define(
-        "Compras",
-        {
-            nomeProduto:{
-                type:Datatypes.STRING,
-                allowNull:false
-            },
-            status:{
-                type:Datatypes.STRING,
-                allowNull:false
-            },
+const compras = (sequelize, DataTypes) => {
+    const Compras = sequelize.define("Compras",{
+        id_cliente: {
+          type: DataTypes.STRING,
+          //unique:true,
+          allowNull: false,
         },
-        {
-            tableName:"compras"
+        email: {
+          type: DataTypes.STRING,
+          unique:true,
+          allowNull: false,
+        },
+        endereco: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        telefone: {
+          type: DataTypes.STRING,
+          unique:true,
+          allowNull: false,
         }
-    )
+      },
+      {
+        tableName: 'compras',
+      }
+    );
     return Compras
-}
-
-module.exports=compras
+  }
+  
+  module.exports = compras
+  
