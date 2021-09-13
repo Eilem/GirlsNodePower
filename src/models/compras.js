@@ -5,13 +5,11 @@ const compras=(sequelize,Datatypes)=>{
             nomeProduto:{
                 type:Datatypes.STRING,
                 allowNull:false
-
             },
             status:{
                 type:Datatypes.STRING,
                 allowNull:false
             },
-
         },
         {
             tableName:"compras"

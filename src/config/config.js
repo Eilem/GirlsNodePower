@@ -10,6 +10,7 @@ try {
 }
 
 const config = {
+    env: process.env.ENV,
     server: {
         port: serverPort
     },

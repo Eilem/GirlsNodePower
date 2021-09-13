@@ -8,6 +8,7 @@ class ClientesService{
         const clientes=await this.cliente.findAll()
         return clientes
     }
+    
     async adicionar(clienteMGL){
         try{
             await this.cliente.create(clienteMGL)

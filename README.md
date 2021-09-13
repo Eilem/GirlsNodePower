@@ -27,6 +27,7 @@ Para trabalhar com diversos ambientes .
 copie e crie o arquivo .env.exemplo para .env
 conforme o Exemplo abaixo com dados de conexão  
 
+ENV=desenvolvimento
 PORT=5000
 DATABASE_URL=postgres://postgres:root@localhost:5432/GirlsNodePower_db
 ```
@@ -51,7 +52,7 @@ ele irá instalar os seguintes módulos:
     npm install swagger-ui-express 
     npm install swagger-autogen 
     npm install sequelize pg 
-`
+``
 ---------------
 
 para gerar a documentação do swagger execute: 

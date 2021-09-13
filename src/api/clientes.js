@@ -24,7 +24,6 @@ router.post("/",async(req,res)=>{
   }catch(erro){
     res.status(400).send("Não foi possvel cadastrar cliente")
   }
-  
-  })
+})
 
 module.exports=router
